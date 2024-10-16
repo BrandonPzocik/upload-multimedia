@@ -4,7 +4,7 @@ import { uploadImage } from "../middlewares/upload.middlewares.js";
 const productsRouter = Router();
 
 //POST /products (create a new product)
-productsRouter.post("/", uploadImage("avatar"), (req, res) => {
+productsRouter.post("/", uploadImage("productImage"), (req, res) => {
   console.log(req.body);
   res.status(201).json({
     msg: "product created",
