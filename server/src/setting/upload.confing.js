@@ -21,12 +21,10 @@ const limits = { fileSize: 1024 * 1024 * maxMb };
 //filters
 const fileFilter = (req, file, cb) => {
   //jpeg, jpg, png, gif, webp
-  const fileTypes = /jpeg|jpg|png|gif|webp/;
+  const fileTypes = /jpg|png/;
   const allowExtname = fileTypes.test(path.extname(file.originalname));
   if (!allowExtname) {
-    return cb(
-      new Error("Solo se permiten imagenes (jpeg, jpg, png, gif, webp)")
-    );
+    return cb(new Error("Solo se permiten imagenes (jpg, png)"));
   }
   return cb(null, true);
 };
